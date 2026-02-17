@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sweat & Stress - Color Scanner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div id="app">
+    <!-- Screen 1: Landing -->
+    <section id="landing-screen" class="screen active">
+      <div class="landing-content">
+        <div class="logo-container">
+          <h1 class="logo-text">
+            <span class="sweat">Sweat</span>
+            <span class="amp">&</span>
+            <span class="stress">Stress</span>
+          </h1>
+        </div>
+        <button class="start-scanner-btn" id="start-scan-init">START SCANNER</button>
+        <div class="landing-footer">
+          <img src="/src/illustration.svg" alt="" class="illustration" id="bottom-illustration">
+        </div>
+      </div>
+    </section>
+
+    <!-- Screen 2: Scanning -->
+    <section id="scanning-screen" class="screen">
+      <div class="video-container">
+        <video id="webcam" autoplay playsinline></video>
+        <canvas id="canvas" style="display:none;"></canvas>
+        <div class="scan-overlay">
+          <div class="scan-frame">
+            <div class="corner top-left"></div>
+            <div class="corner top-right"></div>
+            <div class="corner bottom-left"></div>
+            <div class="corner bottom-right"></div>
+            <div class="scan-line"></div>
+            <div id="countdown-timer" class="countdown-timer">5</div>
+          </div>
+        </div>
+      </div>
+      <div class="scanner-controls">
+        <p class="instruction">เล็งไปที่แผ่นสีเพื่อวิเคราะห์</p>
+        <button class="btn btn-close" id="stop-scan-btn">CLOSE</button>
+      </div>
+    </section>
+
+    <!-- Screen 3: Results -->
+    <section id="results-screen" class="screen">
+      <div class="results-container">
+        <div class="analysis-header">
+          <h3>วิเคราะห์ข้อมูล</h3>
+        </div>
+
+        <div class="stress-scale-container">
+          <div class="scale-track">
+            <div class="scale-pointer" id="scale-pointer"></div>
+          </div>
+          <p class="scale-label">ระดับสี</p>
+        </div>
+
+        <div class="result-details">
+          <div class="level-box">
+            <span class="label">ระดับ :</span>
+            <span class="value" id="res-level">7.5</span>
+          </div>
+          <div class="explanation-box">
+            <p id="res-explanation">ความเครียดสะสมปานกลาง...</p>
+          </div>
+        </div>
+
+        <div class="advice-section">
+          <h4>คำแนะนำ :</h4>
+          <div class="advice-content" id="res-advice">
+            <p>• พักสายตา 5-10 นาที</p>
+            <p>• ดื่มน้ำสะอาด</p>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" id="back-to-scan">SCAN AGAIN</button>
+      </div>
+    </section>
+
+    <div id="debug-log" class="debug-log"></div>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
