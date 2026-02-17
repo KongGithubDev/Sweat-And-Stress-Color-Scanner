@@ -11,6 +11,9 @@ export default defineConfig(({ mode }) => {
             port: 5173,
             strictPort: true,
         },
+        preview: {
+            allowedHosts: ['sweat-and-stress-color-scanner.onrender.com'],
+        },
         plugins: [
             isDev && mkcert(),
         ].filter(Boolean),
